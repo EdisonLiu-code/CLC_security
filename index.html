@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="referrer" content="no-referrer">
   <title>CLC 安總服事｜江子翠行道會</title>
-  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="site.css?v=visitor-nav">
   <script src="config.js" defer></script>
   <script src="site.js" defer></script>
 </head>
@@ -14,10 +14,16 @@
     <div class="topbar">
       <a class="brand" id="home-link" href="./" aria-label="CLC 安總服事首頁">CLC 安總服事</a>
       <nav aria-label="網站管理">
-        <a class="tab" id="sign-in" hidden>管理員登入</a>
-        <a class="tab" id="backend" hidden>查看網站後台</a>
+        <a class="tab" id="sign-in" href="https://clc-security.piggingg.workers.dev/auth/start" target="_top">管理員登入</a>
+        <a class="tab" id="backend" href="https://clc-security.piggingg.workers.dev/manage" target="_top">查看網站後台</a>
       </nav>
     </div>
+    <nav class="visitor-nav topbar" aria-label="同工功能">
+      <a class="tab" href="https://clc-security.piggingg.workers.dev/public/#roster" target="_top">查看班表</a>
+      <a class="tab" href="https://clc-security.piggingg.workers.dev/public/#quick" target="_top">崗位速查</a>
+      <a class="tab" href="https://clc-security.piggingg.workers.dev/public/#duty" target="_top">當班任務</a>
+      <a class="tab" href="https://clc-security.piggingg.workers.dev/public/#evacuation" target="_top">緊急疏散</a>
+    </nav>
   </header>
   <main id="entrance">
     <p class="church">江子翠行道會</p>
