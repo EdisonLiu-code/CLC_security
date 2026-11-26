@@ -5,12 +5,16 @@ if (!window.CLC_WORKER_ORIGIN) {
   status.hidden = false;
 } else {
   const worker = new URL(window.CLC_WORKER_ORIGIN);
-  const login = document.getElementById('sign-in');
-  login.href = new URL('/auth/start', worker);
-  login.hidden = false;
+  for (const [id, path] of [['sign-in', '/auth/start'], ['backend', '/manage']]) {
+    const tab = document.getElementById(id);
+    tab.href = new URL(path, worker);
+    tab.hidden = false;
+  }
   if (/^[A-Za-z0-9_-]{43}$/.test(link)) {
     const portal = document.getElementById('portal');
     portal.src = new URL('/view/' + link + '/', worker);
+    document.getElementById('home-link').href = location.href;
+    document.body.dataset.view = 'portal';
     portal.hidden = false;
     document.getElementById('entrance').hidden = true;
   } else if (link) {
