@@ -10,15 +10,11 @@ if (!window.CLC_WORKER_ORIGIN) {
     tab.href = new URL(path, worker);
     tab.hidden = false;
   }
-  if (/^[A-Za-z0-9_-]{43}$/.test(link)) {
-    const portal = document.getElementById('portal');
-    portal.src = new URL('/view/' + link + '/', worker);
-    document.getElementById('home-link').href = location.href;
-    document.body.dataset.view = 'portal';
-    portal.hidden = false;
-    document.getElementById('entrance').hidden = true;
-  } else if (link) {
-    status.textContent = '分享連結有誤，請重新開啟教會提供的完整連結。';
-    status.hidden = false;
-  }
+  const portal = document.getElementById('portal');
+  const sharedLink = /^[A-Za-z0-9_-]{43}$/.test(link);
+  portal.src = new URL(sharedLink ? '/view/' + link + '/' : '/public/', worker);
+  if (sharedLink) document.getElementById('home-link').href = location.href;
+  document.body.dataset.view = 'portal';
+  portal.hidden = false;
+  document.getElementById('entrance').hidden = true;
 }
